@@ -1,5 +1,6 @@
 package io.spiffe.entryapi;
 
+import lombok.val;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
@@ -49,7 +50,7 @@ public class CreateEntry implements Runnable {
     public void run() {
         service = DefaultEntryService.newEntryService(serverAddress, agentSocketAddress);
 
-        final var entryDef = DefaultEntryService.EntryDef
+       val entryDef = DefaultEntryService.EntryDef
                 .builder()
                 .admin(admin)
                 .dns(dns)
@@ -62,7 +63,7 @@ public class CreateEntry implements Runnable {
                 .ttl(ttl)
                 .build();
 
-        final var result = service.createEntry(entryDef);
+       val result = service.createEntry(entryDef);
 
         System.out.printf("\nResult code: %s\n", result.code);
         System.out.printf("Result message: %s\n", result.message);

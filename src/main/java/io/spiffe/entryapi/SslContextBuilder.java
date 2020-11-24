@@ -38,7 +38,7 @@ public class SslContextBuilder {
     }
 
     private static X509Context fetchX509Context(String agentSocketAddress) {
-        final var clientOptions = DefaultWorkloadApiClient.ClientOptions
+       val clientOptions = DefaultWorkloadApiClient.ClientOptions
                 .builder()
                 .spiffeSocketPath(agentSocketAddress)
                 .build();
